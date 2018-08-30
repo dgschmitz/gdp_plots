@@ -10,7 +10,15 @@ import matplotlib.pyplot as plt
 data = pandas.read_csv('gapminder_gdp_oceania.csv', index_col = 'country').T
 
 # create a plot the transposed data
-ax = data.plot()
+ax = data.plot(title=filename)
+
+#axes labels
+ax.set_xlabel('Year')
+ax.set_ylabel('GDP Per Capita')
+
+#set axes ticks
+ax.set_xticks(range(len(data.index)))
+ax.set_xticklabels(data.index), rotation=45)
 
 # display the plot
 plt.show()
