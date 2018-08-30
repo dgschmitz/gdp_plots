@@ -8,9 +8,20 @@ import matplotlib.pyplot as plt
 #getting a list of files
 import glob
 
-#parse inputs, filename should be at index 1
+#check to make sure inputs exist
+if len(sys.argv) == 1:
+    #no arguments supplied
+    print("Not enough arguments have been provided")
+    print("Usage: python gdp_plots.py <filenames>")
+    print("Options: -a: plot all gdp data in the current directory")
+    exit()
+
+#parse inputs
 if sys.argv[1] == "-a":
     file_list = glob.glob("*gdp*.csv")
+    if len(file_list) == 0:
+        print("No files found in current directory.");
+        exit()
 else:
     file_list = sys.argv[1:];
 
